@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Acompanhamento financeiro dos programas e ações do PPA do Município de Umuarama.">
+  <title>Monitoramento do PPA 2026–2029 | Umuarama</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><div class="brand-mark" aria-hidden="true">U</div><div><strong>UMUARAMA</strong><span>Secretaria Municipal de Fazenda</span></div></div>
+      <div class="top-actions"><span class="header-period">PPA 2026–2029</span><a class="btn secondary download-btn" href="relatorio-monitoramento-2026.pdf" download>Baixar relatório</a><button class="btn print-btn" id="printBtn" type="button">Imprimir painel</button></div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="heading">
+      <div><div class="eyebrow"><span class="dot"></span> PLANEJAMENTO MUNICIPAL</div><h1>Monitoramento do PPA</h1><p>Execução orçamentária dos programas e ações do município.</p></div>
+      <div class="period"><span>PERÍODO DE REFERÊNCIA</span><strong>Janeiro a outubro de 2026</strong></div>
+    </section>
+    <section class="cards" aria-label="Resumo dos valores">
+      <article class="card"><span class="card-label">Orçamento inicial</span><strong id="budget">—</strong><span class="card-sub">Dotação inicial das ações</span></article>
+      <article class="card"><span class="card-label">Despesa liquidada</span><strong id="spent">—</strong><span class="card-sub" id="spentPct">—</span></article>
+      <article class="card"><span class="card-label">Receita arrecadada</span><strong id="revenue">—</strong><span class="card-sub">Total consolidado do período</span></article>
+      <article class="card"><span class="card-label">Registros com liquidação</span><strong id="actionsExecuted">—</strong><span class="card-sub" id="actionCount">—</span></article>
+    </section>
+    <section class="panel filters" aria-label="Filtros">
+      <div class="filter-title"><div><h2>Consulte os dados</h2><p>Selecione um programa ou entidade.</p></div><button class="text-button" id="resetBtn" type="button">Limpar filtros</button></div>
+      <div class="filter-grid"><label>Programa<select id="programFilter"><option value="">Todos os programas</option></select></label><label>Entidade<select id="entityFilter"><option value="">Todas as entidades</option></select></label><label>Busca por ação<input type="search" id="searchFilter" placeholder="Nome ou código da ação" autocomplete="off"></label></div>
+    </section>
+    <div class="content-grid">
+      <section class="panel program-panel"><div class="panel-heading"><div><div class="eyebrow small">PANORAMA</div><h2>Execução por programa</h2><p>Valores liquidados no período</p></div><span class="chip" id="programCount">—</span></div><div id="programBars" class="bars"></div></section>
+      <section class="panel fiscal-panel"><div class="panel-heading"><div><div class="eyebrow small">CENÁRIO FISCAL</div><h2>Receita e despesa</h2><p>Dados consolidados do município</p></div></div>
+        <div class="fiscal-row"><span>Receita prevista</span><strong id="revenueBudget">—</strong></div>
+        <div class="fiscal-row"><span>Receita arrecadada</span><strong id="revenueActual">—</strong></div>
+        <div class="fiscal-progress"><span id="revenueBar"></span></div><div class="progress-label" id="revenuePct">—</div>
+        <div class="fiscal-row border-top"><span>Despesa inicial</span><strong id="fiscalBudget">—</strong></div>
+        <div class="fiscal-row"><span>Despesa liquidada</span><strong id="fiscalSpent">—</strong></div>
+        <p class="fiscal-note">Valores de referência anuais e realização até outubro de 2026.</p>
+      </section>
+    </div>
+    <section class="panel table-panel">
+      <div class="panel-heading table-title"><div><div class="eyebrow small">DETALHAMENTO</div><h2>Projetos e atividades</h2><p id="tableDescription">—</p></div><button class="btn secondary" id="csvBtn" type="button">Exportar dados</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Programa / Ação</th><th>Entidade</th><th class="number">Orçado</th><th class="number">Liquidado</th><th class="number">Execução</th><th class="center">Marcador</th></tr></thead><tbody id="actionsTable"></tbody></table></div>
+      <div class="pagination"><span id="pageLabel">—</span><div><button class="pager" id="prevBtn" type="button">Anterior</button><button class="pager" id="nextBtn" type="button">Próxima</button></div></div>
+    </section>
+    <section class="method"><h2>Critério de acompanhamento</h2><p>O marcador apresenta <strong>1</strong> para registros de ação com despesa liquidada e <strong>0</strong> para registros sem despesa liquidada no período. É um indicador financeiro indireto; não representa, por si só, a medição física do produto. O percentual de execução corresponde à despesa liquidada dividida pelo valor inicial do balancete.</p><p>Os dados dos indicadores de resultado não integram esta base. O detalhamento utiliza a classificação do balancete; o total inicial consolidado coincide com o PPA informado.</p></section>
+    <footer>Prefeitura Municipal de Umuarama · Diretoria de Planejamento Orçamentário<br><span>Fontes: PPA 2026–2029 e balancetes de receita e despesa até outubro de 2026.</span></footer>
+    <div id="errorMessage" role="alert" hidden>Não foi possível carregar os dados do painel.</div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+PAINEL DE MONITORAMENTO DO PPA 2026–2029
+
+Publicação: extraia o conteúdo completo deste ZIP em uma pasta própria de um servidor HTTP ou HTTPS, mantendo a estrutura de pastas. O arquivo inicial é index.html.
+
+Atualização dos dados: substitua o arquivo dados/painel.json pelo novo painel.json, mantendo o nome e o caminho. O relatório em PDF é um arquivo separado e também deve ser atualizado quando houver nova versão.
+
+Esta publicação é independente de outros painéis existentes.
+
+Base: janeiro a outubro de 2026.
