@@ -60,7 +60,7 @@ function downloadCsv(){
 }
 async function initialize(){
   try{
-    const res=await fetch('dados/painel.json'); if(!res.ok) throw new Error('Dados não disponíveis');data=await res.json();
+    const res=await fetch('painel.json'); if(!res.ok) throw new Error('Dados não disponíveis');data=await res.json();
     setOptions('programFilter',data.programas.map(p=>[p.codigo,`${p.codigo} · ${p.nome}`]));
     const entities=[...new Set(data.acoes.map(a=>a.entidade))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
     setOptions('entityFilter',entities.map(x=>[x,x]));
